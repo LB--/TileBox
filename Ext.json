@@ -1,74 +1,170 @@
 {
 	"About":
 	{
-		"Name": "EDIF Template Object",
-		"Author": "Your Name",
-		"Copyright": "Copyright © 2013 Your Name",
-		"Comment": "A sentence or two to describe your extension,\nwith up to four lines of text.",
-		"URL": "http://www.example.com/",
-		"Help": "Help/My New EDIF Extension/Help.chm",
-		"Identifier": "X&pl"
+		"Name": "TileBox",
+		"Author": "RickyRombo",
+		"Copyright": "Copyright © 2013 RickyRombo",
+		"Comment": "Lets you make fancy boxes more simply\n\nPorted to EDIF by LB",
+		"URL": "http://rickyrombo.co.nr",
+		"Help": "Help/TileBox/Help.chm",
+		"Identifier": "BTLE"
 	},
 
 	"ActionMenu":
 	[
 		"Separator",
-		[0, "Action Example"],
-		"Separator",
-		["Sub Menu",
-			[1, "Second Action Example"]
+		["Box Properties",
+			[0, "Set Tile Width"],
+			[1, "Set Tile Height"],
+			"Separator",
+			[2, "Set Box Width"],
+			[3, "Set Box Height"],
+			"Separator",
+			[4, "Set Box Start Position"]
 		],
-		"Separator",
-		[0, "A Disabled Menu Item", true],
+		[5, "Generate Box"],
 		"Separator"
 	],
 	"ConditionMenu":
 	[
 		"Separator",
-		[0, "Are two numbers equal?"]
+		["Left side",
+			[0, "Left/Top"],
+			[1, "Left/Middle"],
+			[2, "Left/Bottom"]
+		],
+		["Middle",
+			[3, "Middle/Top"],
+			[4, "Center"],
+			[5, "Middle/Bottom"]
+		],
+		["Right side",
+			[6, "Right/Top"],
+			[7, "Right/Middle"],
+			[8, "Right/Bottom"]
+		]
 	],
 	"ExpressionMenu":
 	[
 		"Separator",
-		[0, "Add two numbers"],
-		[1, "Hello world"],
+		[0, "Last X"],
+		[1, "Last Y"],
 		"Separator"
 	],
 
 	"Actions":
 	[
-		{	"Title": "Action Example with parameter %0",
+		{	"Title": "Set Tile Width to %0",
 			"Parameters":
 			[
-				["Integer", "Example Parameter"]
+				["Integer", "Width (in pixels)"]
 			]
 		},
-		{	"Title": "Second Action Example"
-		}
+		{	"Title": "Set Tile Height to %0",
+			"Parameters":
+			[
+				["Integer", "Height (in pixels)"]
+			]
+		},
+		{	"Title": "Set Box Width to %0",
+			"Parameters":
+			[
+				["Integer", "Width (in tiles)"]
+			]
+		},
+		{	"Title": "Set Box Height to %0",
+			"Parameters":
+			[
+				["Integer", "Height (in tiles)"]
+			]
+		},
+		{	"Title": "Set Box Start Position (%0, %1)",
+			"Parameters":
+			[
+				["Integer", "X Position of top left"],
+				["Integer", "Y Position of top left"]
+			]
+		},
+		{	"Title": "Generate Box type %0",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			]
+		},
 	],
 	"Conditions":
 	[
-		{	"Title": "%o: Are %0 and %1 equal?",
+		{	"Title": "%o: On type %0 top left",
 			"Parameters":
 			[
-				["Integer", "First number"],
-				["Integer", "Second number"]
+				["Integer", "Type"]
 			],
-			"Triggered": false
-		}
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 middle left",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 bottom left",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 top middle",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 center",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 middle bottom",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 right top",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 right middle",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
+		{	"Title": "%o: On type %0 right bottom",
+			"Parameters":
+			[
+				["Integer", "Type"]
+			],
+			"Triggered": true
+		},
 	],
 	"Expressions":
 	[
-		{	"Title": "Add(",
-			"Returns": "Integer",
-			"Parameters":
-			[
-				["Integer", "First number"],
-				["Integer", "Second number"]
-			]
+		{	"Title": "LastX(",
+			"Returns": "Integer"
 		},
-		{	"Title": "HelloWorld$(",
-			"Returns": "Text"
+		{	"Title": "LastY(",
+			"Returns": "Integer"
 		}
 	]
 }

@@ -1,14 +1,40 @@
-/* Conditions.cpp
- * This is where you should define the
- * behavior of your conditions. Make sure
- * the parameters and return types match those
- * in the JSON exactly! Double check Extension.h
- * as well.
- */
-
 #include "Common.h"
 
-bool Extension::AreTwoNumbersEqual(int First, int Second)
+bool Extension::LeftTop(int type)
 {
-	return First == Second;
+	return currentX[type] == 0 && currentY[type] == 0;
+}
+bool Extension::LeftMiddle(int type)
+{
+	return currentX[type] == 0 && currentY[type] > 0 && currentY[type] < boxHeight;
+}
+bool Extension::LeftBottom(int type)
+{
+	return currentX[type] == 0 && currentY[type] == boxHeight;
+}
+
+bool Extension::MiddleTop(int type)
+{
+	return currentX[type] > 0 && currentY[type] == 0 && currentX[type] < boxWidth;
+}
+bool Extension::MiddleMiddle(int type)
+{
+	return currentX[type] > 0 && currentY[type] > 0 && currentY[type] < boxHeight && currentX[type] < boxWidth;
+}
+bool Extension::MiddleBottom(int type)
+{
+	return currentX[type] > 0 && currentY[type] == boxHeight && currentX[type] < boxWidth;
+}
+
+bool Extension::RightTop(int type)
+{
+	return currentY[type] == 0 && currentX[type] == boxWidth;
+}
+bool Extension::RightMiddle(int type)
+{
+	return currentY[type] > 0 && currentY[type] < boxHeight && currentX[type] == boxWidth;
+}
+bool Extension::RightBottom(int type)
+{
+	return currentY[type] == boxHeight && currentX[type] == boxWidth;
 }
